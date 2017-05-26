@@ -15,10 +15,9 @@ function initMap(){
 function buscar(){
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(funcionExito, funcionError);
-    var latitud, longitud;
   }
 }
-
+    var latitud, longitud;
   var funcionExito = function(posicion){
     latitud = posicion.coords.latitude;
     longitud = posicion.coords.longitude;
@@ -34,7 +33,7 @@ function buscar(){
 
 
   var funcionError = function(error){
-    alert("Tenemos un problema al detectar tu ubicación");
+    console.log(error.code + error.message);
   }
 
   document.getElementById("btn").addEventListener("click",buscar)
